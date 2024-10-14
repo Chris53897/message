@@ -29,6 +29,10 @@ jobs:
           tools: composer
           coverage: none
 
+      - name: Validate composer.json
+        run: composer validate --strict
+        if: matrix.php == '8.4'
+
       - name: Install dependencies
         run: composer update --prefer-dist --no-interaction --no-progress
 
